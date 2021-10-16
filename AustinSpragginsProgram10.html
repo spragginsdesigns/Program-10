@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Program 10</title>
+  <!-- CSS -->
+  <style>
+    #main {
+      border-radius: 3px;
+      padding: 10px;
+    }
+    
+    #header {
+      border-radius: 3px;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    body {
+      background-color: #292A2B;
+      text-align: center;
+      font-family: Montserrat;
+      color: #fff;
+    }
+    
+    a {
+      color: rgb(27, 157, 218);
+    }
+    
+    button {
+      color: #fff !important;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: #ee9025;
+      padding: 20px;
+      border-radius: 5px;
+      display: inline-block;
+      border: none;
+      transition: all 0.4s ease 0s;
+    }
+    
+    button:hover {
+      background: #434343;
+      letter-spacing: 1px;
+      -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+      -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+      box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+      transition: all 0.4s ease 0s;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      text-shadow: 1px;
+      text-transform: capitalize;
+      text-align: center;
+      font-style: underline;
+    }
+    /* This is a custom snippet I made so the footer always stays at the bottom of the page */
+    
+    footer {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 2em;
+      background-color: #FFF;
+      text-align: center;
+      border-color: rgb(0, 0, 0);
+      border-radius: 18px;
+      padding: 12px;
+      margin-top: 30em;
+      margin-bottom: 1em;
+      color: black;
+      font-style: italic;
+    }
+    
+    .description {
+      font-style: italic;
+    }
+    
+    form {
+      border-radius: 25px;
+      padding: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <h1>Program 10</h1>
+      <h2>Arrays</h2>
+    </div>
+
+    <form id="myForm">
+      You will be entering numbers.<br><br> This program will put all of those numbers in an array.<br><br> Add them and find the average.
+      <br><br>
+
+    </form>
+
+    <p id="demo">Output:</p>
+    <p id="message"> <br> </p>
+    <div class="button_cont" ;align="center">
+      <button type="button" class="btn1" onClick="controller()">Enter A Number</button><br><br><br>
+      <button type="button" class="btn2" onClick="clearText()">Clear</button><br>
+    </div>
+  </div>
+  <footer>Created By <a href="http://www.spragginsdesigns.com" target="_BLANK">Austin Spraggins</a></footer>
+</body>
+<!-- JavaScript -->
+<script type="text/javascript">
+  function controller() {
+    var result;
+    var output = "";
+    var repeat;
+    var scores = [];
+    var average = 0;
+    var sum = 0;
+
+    while (repeat !== "n") {
+      scores.push(prompt("Enter a number"));
+      repeat = prompt("Would you like to add another score? y/n?");
+    }
+
+    for (i = 0; i < scores.length; i++) {
+      output += scores[i] + "<br>";
+      sum += parseFloat(scores[i]); // sum = sum + parseFloat(scores[i]);
+    }
+
+    average = sum / scores.length;
+    result = "Numbers Entered:<br>" + average;
+    document.getElementById("message").innerHTML = (result);
+
+  }
+
+  function clearText() {
+    document.getElementById("message").innerHTML = ("<br>");
+  }
+  // I was going to use jQuery here and also jsdom, but I chose not to include //
+  require("jsdom").env("", function(err, window) {
+    if (err) {
+      console.error(err);
+      return;
+    }
+
+    var $ = require("jquery")(window);
+  });
+  // End of script //
+</script>
+
+</html>
